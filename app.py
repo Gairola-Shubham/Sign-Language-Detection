@@ -4,11 +4,19 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import logging
 import os
+import sys
 
 app = Flask(__name__)
 
-# ✅ Correct path to the model
-MODEL_PATH = os.path.join(os.getcwd(), 'trained_model', 'signlanguagedetectionmodel50x50.h5')
+# ✅ Robust model path check
+MODEL_DIR = os.path.join(os.getcwd(), 'trained_model')
+MODEL_FILENAME = 'signlanguagedetectionmodel50x50.h5'
+MODEL_PATH = os.path.join(MODEL_DIR, MODEL_FILENAME)
+
+if not os.path.exists(MODEL_PATH):
+    print(f"❌ ERROR: Model file not found at {MODEL_PATH}")
+    sys.exit(1)  # Exit if model file doesn't exist
+
 model = load_model(MODEL_PATH)
 
 # Labels corresponding to the model output
