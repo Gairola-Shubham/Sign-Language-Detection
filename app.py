@@ -7,12 +7,12 @@ import os
 
 app = Flask(__name__)
 
-# Load the trained model (ensure this file is in the same directory or provide full path)
-MODEL_PATH = os.path.join(os.getcwd(), 'signlanguagedetectionmodel50x50.h5')
+# ✅ Correct path to the model
+MODEL_PATH = os.path.join(os.getcwd(), 'trained_model', 'signlanguagedetectionmodel50x50.h5')
 model = load_model(MODEL_PATH)
 
 # Labels corresponding to the model output
-labels = [chr(i) for i in range(ord('A'), ord('Z')+1)] + ['blank']
+labels = [chr(i) for i in range(ord('A'), ord('Z') + 1)] + ['blank']
 
 # Normalize and reshape image for prediction
 def preprocess_image(image):
