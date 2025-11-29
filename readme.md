@@ -1,138 +1,58 @@
-🎯 Sign Language Detection (A–Z) – Real-Time Computer Vision + Deep Learning
+# 🤟 Sign Language Detection (ASL A–Z)  
+### Real-Time Hand Gesture Recognition using Computer Vision + Deep Learning  
+**Built with TensorFlow · Keras · OpenCV · Mediapipe · Tkinter GUI**
 
-A real-time American Sign Language (ASL) alphabet recognition system built using:
+---
 
-TensorFlow / Keras
+## 📌 Project Overview  
+This project performs **real-time American Sign Language (ASL) alphabet detection (A–Z)** using a combination of:
 
-OpenCV for webcam capture
+- **TensorFlow/Keras** (MobileNetV2 classifier)  
+- **OpenCV** for webcam stream  
+- **Mediapipe** for accurate hand-detection & auto-cropping  
+- **Tkinter GUI** for desktop use  
+- **Custom prediction logic** to avoid accidental characters  
 
-MediaPipe for hand detection + auto-cropping
+The system recognizes:
 
-Tkinter desktop GUI for interaction
+✔ Letters **A–Z**  
+✔ **Space**  
+✔ **Delete**  
+✔ **Nothing** (no hand detected)  
+✔ Updates text intelligently (adds delay, avoids spam letters)
 
-MobileNetV2 deep learning model
+---
 
-The system predicts A–Z, Space, Delete, builds words live, and shows a guide image for each sign.
+## 🚀 Features  
 
-🚀 Demo
+### 🟣 Real-Time Detection  
+- Fast, lightweight MobileNetV2 (TensorFlow)  
+- Mediapipe-based **hand localization**  
+- Only extracts prediction from cropped hand region  
 
-(Add your own screenshot or GIF here)
+### 🟣 Smart Prediction Logic  
+- Writes a character **only when confidence is high**  
+- Adds a **delay timer** to prevent rapid repeated letters  
+- Ignores predictions if:  
+  - No hand detected  
+  - Low confidence  
+  - Wrong gesture detected momentarily  
 
-![Demo](assets/demo.gif)
+### 🟣 Full Desktop GUI  
+- Live webcam feed  
+- Detected character preview  
+- Word builder textbox  
+- Guide image for selected sign  
+- Buttons: **Delete**, **Clear**  
+- Clickable **A–Z, space, del** buttons (manual input)
 
-⭐ Features
-🔍 Real-Time Detection
+### 🟣 Model  
+- Backbone: **MobileNetV2**  
+- Dataset: **ASL Alphabet Dataset (~87k images)**  
+- Classes: **29 (A–Z + space + del + nothing)**  
+- Achieved: **~99% validation accuracy**
 
-Live webcam feed
+---
 
-MediaPipe-based hand detection
+## 📁 Project Structure
 
-Auto hand-cropping
-
-Ignores frames when no hand is detected
-
-🧠 Deep Learning Model
-
-MobileNetV2 backbone
-
-Trained on ASL Alphabet Dataset (~87k images)
-
-Supports 29 classes
-
-A–Z
-
-space
-
-del
-
-nothing (internal logic only)
-
-Achieved ~99% validation accuracy
-
-📝 Smart Prediction Logic
-
-Writes a letter only when a hand is detected
-
-Avoids duplicate characters by smoothing predictions
-
-Add / delete characters in real time
-
-Built-in guide displaying the reference sign for each letter
-
-🖼️ Project Screenshot
-
-(Add your GUI screenshot here)
-
-![GUI](assets/gui.png)
-
-📂 Project Structure
-├── app.py               # Basic prediction script
-├── app_gui.py           # Full Tkinter GUI application
-├── train.py             # Model training script
-├── prep_split.py        # Dataset preparation
-├── artifacts/
-│   ├── best_model.h5
-│   ├── class_indices.json
-│   └── preprocess.json
-├── guide/               # A.jpg, B.jpg ... Z.jpg reference images
-├── data/                # Ignored (train/val/test)
-├── readme.md
-└── requirement.txt
-
-🔧 Installation
-1️⃣ Clone the repository
-git clone https://github.com/Gairola-Shubham/Sign-Language-Detection.git
-cd Sign-Language-Detection
-
-2️⃣ Create a virtual environment
-python -m venv .venv
-.\.venv\Scripts\activate
-
-3️⃣ Install dependencies
-pip install -r requirement.txt
-
-▶️ Run the Application
-Start the GUI
-python app_gui.py
-
-Or run the basic version
-python app.py
-
-📦 Dataset
-
-This project uses the ASL Alphabet Dataset (Kaggle)
-Dataset is NOT included in the repo due to size.
-
-Download from:
-https://www.kaggle.com/datasets/grassknoted/asl-alphabet
-
-🧪 Training the Model
-
-If you want to retrain the model:
-
-Place the dataset in:
-
-asl_alphabet_train/
-asl_alphabet_test/
-
-
-Run:
-
-python prep_split.py
-python train.py
-
-
-Model & metadata will be saved to the artifacts/ folder.
-
-🛠️ Tech Stack
-Component	Technology
-Deep Learning	TensorFlow / Keras
-Computer Vision	OpenCV
-Hand Detection	MediaPipe
-Model Backbone	MobileNetV2
-GUI	Tkinter
-Dataset	ASL Alphabet Dataset
-🤝 Contributing
-
-Contributions are welcome!
-Feel free to submit issues or pull requests.
