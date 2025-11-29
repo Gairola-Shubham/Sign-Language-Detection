@@ -118,18 +118,20 @@ The trained model will be saved at:
 artifacts/best_model.h5
 ```
 ## 🛠 Tech Stack
-Python 3.10–3.11
-TensorFlow / Keras
-OpenCV
-Mediapipe
-Tkinter
-NumPy
+- Python 3.10–3.11
+- TensorFlow / Keras
+- OpenCV
+- Mediapipe
+- Tkinter
+- NumPy
+
 
 ## 🎯 Future Enhancements
-Two-hand recognition
-Add numbers (0–9)
-Sentence-level prediction
-Deploy as a web app
+- Two-hand recognition
+- Add numbers (0–9)
+- Sentence-level prediction
+- Deploy as a web app
+
 
 
 
