@@ -75,25 +75,25 @@ Sign-Language-Detection/
 git clone https://github.com/Gairola-Shubham/Sign-Language-Detection.git
 cd Sign-Language-Detection
 ```
-####2️⃣ Create Virtual Environment
+### 2️⃣ Create Virtual Environment
 ```bash
 python -m venv .venv
 .venv\Scripts\activate   # Windows
 ```
-#####3️⃣ Install Requirements
+### 3️⃣ Install Requirements
 ```bash
 pip install -r requirements.txt
 ```
-######▶️ Run the Application
+### ▶️ Run the Application
 GUI Version
 ```bash
 python app_gui.py
 ```
-#######Basic Version
+## Basic Version
 ```bash
 python app.py
 ```
-#######📦 Dataset
+## 📦 Dataset
 This project uses the ASL Alphabet Dataset from Kaggle:
 
 🔗 https://www.kaggle.com/datasets/grassknoted/asl-alphabet
@@ -117,7 +117,7 @@ The trained model will be saved at:
 ```bash
 artifacts/best_model.h5
 ```
-###🛠 Tech Stack
+## 🛠 Tech Stack
 Python 3.10–3.11
 TensorFlow / Keras
 OpenCV
@@ -125,11 +125,12 @@ Mediapipe
 Tkinter
 NumPy
 
-###🎯 Future Enhancements
+## 🎯 Future Enhancements
 Two-hand recognition
 Add numbers (0–9)
 Sentence-level prediction
 Deploy as a web app
+
 
 
 
