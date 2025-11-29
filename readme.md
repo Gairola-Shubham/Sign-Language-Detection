@@ -1,115 +1,138 @@
-Sign Language Detection (ASL A–Z) – Real-Time ML + Computer Vision Project
+🎯 Sign Language Detection (A–Z) – Real-Time Computer Vision + Deep Learning
 
 A real-time American Sign Language (ASL) alphabet recognition system built using:
 
 TensorFlow / Keras
 
-OpenCV for video capture
+OpenCV for webcam capture
 
-Mediapipe for hand detection
+MediaPipe for hand detection + auto-cropping
 
-Tkinter GUI for desktop application
+Tkinter desktop GUI for interaction
 
-The system recognizes A–Z, Space, and Del, builds words in real time, and shows a guide image for each sign.
+MobileNetV2 deep learning model
 
-🚀 Features
-✔ Real-Time Detection
+The system predicts A–Z, Space, Delete, builds words live, and shows a guide image for each sign.
 
-Mediapipe-based hand detection
+🚀 Demo
 
-Auto hand cropping
+(Add your own screenshot or GIF here)
+
+![Demo](assets/demo.gif)
+
+⭐ Features
+🔍 Real-Time Detection
+
+Live webcam feed
+
+MediaPipe-based hand detection
+
+Auto hand-cropping
 
 Ignores frames when no hand is detected
 
-✔ Deep Learning Model
+🧠 Deep Learning Model
 
 MobileNetV2 backbone
 
 Trained on ASL Alphabet Dataset (~87k images)
 
-29 classes (A–Z + space + del + nothing)
+Supports 29 classes
 
-~99% validation accuracy
+A–Z
 
-✔ Smart Prediction Logic
+space
 
-Confidence thresholding
+del
 
-Temporal smoothing to avoid flicker
+nothing (internal logic only)
 
-Only types when detection is stable
+Achieved ~99% validation accuracy
 
-✔ Clean Desktop GUI
+📝 Smart Prediction Logic
 
-Live webcam feed
+Writes a letter only when a hand is detected
 
-Real-time prediction and confidence
+Avoids duplicate characters by smoothing predictions
 
-Text builder (typing output)
+Add / delete characters in real time
 
-Delete & Clear buttons
+Built-in guide displaying the reference sign for each letter
 
-Grid of guide images
+🖼️ Project Screenshot
 
-Fully responsive layout
+(Add your GUI screenshot here)
 
-🧠 Model Artifacts
+![GUI](assets/gui.png)
 
-Saved model components:
-
-artifacts/
-│── best_model.h5
-│── class_indices.json
-└── preprocess.json
-
-📁 Project Structure
-Sign-Language-Detection/
-│
-├── app_gui.py
-├── app.py                (optional, CLI version)
-├── requirements.txt
-├── README.md
-│
+📂 Project Structure
+├── app.py               # Basic prediction script
+├── app_gui.py           # Full Tkinter GUI application
+├── train.py             # Model training script
+├── prep_split.py        # Dataset preparation
 ├── artifacts/
 │   ├── best_model.h5
 │   ├── class_indices.json
 │   └── preprocess.json
-│
-└── guide/
-    ├── A.jpg
-    ├── B.jpg
-    ├── ...
-    └── space.jpg
+├── guide/               # A.jpg, B.jpg ... Z.jpg reference images
+├── data/                # Ignored (train/val/test)
+├── readme.md
+└── requirement.txt
 
-▶️ How to Run
-1. Install dependencies
-pip install -r requirements.txt
+🔧 Installation
+1️⃣ Clone the repository
+git clone https://github.com/Gairola-Shubham/Sign-Language-Detection.git
+cd Sign-Language-Detection
 
-2. Run the GUI application
+2️⃣ Create a virtual environment
+python -m venv .venv
+.\.venv\Scripts\activate
+
+3️⃣ Install dependencies
+pip install -r requirement.txt
+
+▶️ Run the Application
+Start the GUI
 python app_gui.py
 
-🛠 Technologies Used
+Or run the basic version
+python app.py
 
-Python
+📦 Dataset
 
-TensorFlow / Keras
+This project uses the ASL Alphabet Dataset (Kaggle)
+Dataset is NOT included in the repo due to size.
 
-OpenCV
+Download from:
+https://www.kaggle.com/datasets/grassknoted/asl-alphabet
 
-Mediapipe
+🧪 Training the Model
 
-Tkinter
+If you want to retrain the model:
 
-NumPy
+Place the dataset in:
 
-📌 Future Improvements
+asl_alphabet_train/
+asl_alphabet_test/
 
-Support for two-hand ASL gestures
 
-Continuous word/sentence recognition
+Run:
 
-Noise-resistant tracking
+python prep_split.py
+python train.py
 
-Mobile version using TFLite
 
-Webcam auto-exposure & brightness control
+Model & metadata will be saved to the artifacts/ folder.
+
+🛠️ Tech Stack
+Component	Technology
+Deep Learning	TensorFlow / Keras
+Computer Vision	OpenCV
+Hand Detection	MediaPipe
+Model Backbone	MobileNetV2
+GUI	Tkinter
+Dataset	ASL Alphabet Dataset
+🤝 Contributing
+
+Contributions are welcome!
+Feel free to submit issues or pull requests.
